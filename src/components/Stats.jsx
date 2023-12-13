@@ -1,13 +1,18 @@
+/* eslint-disable react/prop-types */
 
-export const Stats = () => {
+export const Stats = ({ items }) => {
+    const numberItems = items.length
+    const packedItems = items.filter(item => item.packed === true)
+    const porcentage = Math.round((packedItems.length / numberItems) * 100)
+    const isPorcetageFull = porcentage === 100
     return (
-        <footer>
+        <footer className="stats" >
 
-            <em>
+            {!isPorcetageFull ? <em>
 
 
-                💼You have x items on your list , and you already packed C
-            </em>
+                💼You have  {numberItems} on your list , and you already packed {porcentage}%
+            </em> : <em>🎉You are ready for your trip</em>}
 
 
 
