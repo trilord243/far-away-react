@@ -18,6 +18,9 @@ const App = () => {
     setItems(newItems)
 
   }
+  const handleClear = () => {
+    setItems([])
+  }
 
   const handepacked = (id, items) => {
     const newItems = items.map(item => {
@@ -33,7 +36,7 @@ const App = () => {
     <div className="app">
       <Logo />
       <Form onAddItems={handleAdd} />
-      <PackingList items={items} handleDelete={handleDelete} handepacked={handepacked} />
+      <PackingList items={items} handleDelete={handleDelete} handepacked={handepacked} handleClear={handleClear} />
       <Stats items={items} />
 
 
